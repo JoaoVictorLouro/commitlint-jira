@@ -13,4 +13,10 @@ describe('jiraTaskIdMinLengthRuleResolver', () => {
     }
     expect(jiraTaskIdMinLengthRuleResolver(parsed)[0]).toEqual(true)
   })
+  it('should return a success response if there is an URL in the commit message', () => {
+    const parsed = {
+      raw: 'IB-21: my commit message\nhttps://mytestwebsite.com/IB-21',
+    }
+    expect(jiraTaskIdMinLengthRuleResolver(parsed)[0]).toEqual(true)
+  })
 })

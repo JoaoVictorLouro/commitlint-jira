@@ -21,7 +21,7 @@ const parseCommitMessage: TParseCommitMessage = commitMessage => {
     commitTaskIds: commitHeader
       .split(COMMIT_TASK_IDS_SEPARATOR)
       .map(taskId => taskId.trim())
-      .filter(taskId => taskId),
+      .filter(taskId => taskId && taskId.search(/\w+.*[0-9]+/) === 0),
     commitFooter: commitFooter.trim(),
     commitHeader: commitHeader.trim(),
     commitStatus: commitStatus.trim(),
